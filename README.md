@@ -81,5 +81,3 @@ Interpret these numbers alongside precision/recall for each class — dataset is
 - The code is intended as a starting point — treat the saved model as an experimental artifact, not production-ready.
 
 ---
-
-If you want, I can open a PR, add unit tests, or add a brief CONTRIBUTING section. Tell me which next step you'd like.
