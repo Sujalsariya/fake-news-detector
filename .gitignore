@@ -1,0 +1,17 @@
+# Ignore saved model files
+*.joblib
+
+# Ignore dataset files (keep out of repo in production)
+FakeNewsNet.csv
+news.csv
+
+# Ignore generated outputs
+output.png
+
+# Python cache
+__pycache__/
+.pytest_cache/
+
+# Virtual environment
+venv/
+env/
