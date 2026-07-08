@@ -13,14 +13,29 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 print("🔁 Loading dataset...")
 
 # Load dataset
-df = pd.read_csv('news.csv')
+df = pd.read_csv('FakeNewsNet.csv')
 
 print("✅ Sample data:")
 print(df.head())
 
 # Features and labels
-X = df['text']
-y = df['label']
+# Some datasets use a `text` column, others use `title` or `content`.
+if 'text' in df.columns:
+	X = df['text']
+elif 'title' in df.columns:
+	X = df['title']
+elif 'content' in df.columns:
+	X = df['content']
+else:
+	raise KeyError(f"No text column found. Available columns: {list(df.columns)}")
+
+# label column may be named `label` or `real` in some datasets
+if 'label' in df.columns:
+	y = df['label']
+elif 'real' in df.columns:
+	y = df['real']
+else:
+	raise KeyError(f"No label column found. Available columns: {list(df.columns)}")
 
 # Train-test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
